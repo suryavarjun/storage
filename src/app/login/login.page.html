@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-        <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>register</ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+    <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,6 +19,6 @@
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
-  <ion-button expand="block" (click)="onRegister()">Register</ion-button>
-  <ion-button expand="block" href="/login">Login</ion-button>
+  <ion-button expand="block" (click)="onLogin()">Login</ion-button>
+  <ion-button expand="block" href="/register">New</ion-button>
 </ion-content>

@@ -1,52 +1,22 @@
-import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-
-interface User{
-  email:string;
-  password:string;
-}
-
+// import { AuthenticationService, OnInit} from '../services/authentication.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  [x: string]: any;
-  user: User = {
-    email: '',
-    password:'',
-  };
-  constructor(public afAuth: AngularFireAuth, private router: Router) {}
-   async createAccount(){
-     const user = await this.afAuth.auth.createUserWithEmailAndPassword(
-       this.user.email,
-       this.user.password
-     );
-     console.log(user);
-   }
+export class HomePage  implements OnInit {
 
-  //  async login(){
-  //   const user = await this.afAuth.auth.signInWithEmailAndPassword(
-  //     this.user.email,
-  //     this.user.password
-  //   );
-  //   console.log(user);
-  //  }
+  constructor(private authService: AuthService, private router: Router) {}
 
-   async logout(){
-     await this.afAuth.auth.signOut();
-   }
-   register(){
-     console.log(this.user);
-   }
-   login(){
-    console.log(this.user);
-    this.router.navigate(['register']);
+  ngOnInit() {
   }
-  // logout(){
-  //   console.log(this.user);
-  // }
+ 
+  log() {
+    this.router.navigate(['login'])
+  }
+
 }
