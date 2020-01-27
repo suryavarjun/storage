@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage  implements OnInit {
-
+   users: any;
+  http: any;
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
@@ -18,5 +19,4 @@ export class HomePage  implements OnInit {
   log() {
     this.router.navigate(['login'])
   }
-
 }

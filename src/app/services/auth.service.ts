@@ -6,6 +6,7 @@ import { User } from '../shared/user.class';
   providedIn: 'root'
 })
 export class AuthService {
+  currentUserValue: any;
   isAuthenticated(): boolean {
     throw new Error("Method not implemented.");
   }

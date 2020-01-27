@@ -20,6 +20,7 @@ export class LoginPage implements OnInit {
 async onLogin(){
   const user = await this.authSvc.onLogin(this.user);
   if(user){
+    
     console.log('Succesfully logged in!');
     this.router.navigateByUrl('logout');
   }
