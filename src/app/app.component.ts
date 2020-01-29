@@ -7,6 +7,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import { ApiService } from './api.service';
+
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  [x: string]: any;
+  smartphone: any = [];
+
   authService: any;
   constructor(
     private platform: Platform,
@@ -23,6 +28,19 @@ export class AppComponent {
     private router : Router
   ) {
     this.initializeApp();
+  }
+
+  getSmartphones() {
+    this.api.getSmartphone()
+      .subscribe(data => {
+        for (const d of (data as any)) {
+          this.smartphone.push({
+            name: d.name,
+            price: d.price
+          });
+        }
+        console.log(this.smartphone);
+      });
   }
 
   initializeApp() {
