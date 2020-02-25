@@ -30,7 +30,31 @@ const routes: Routes = [
   {
     path: 'logout',
     loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+  },  {
+    path: 'message',
+    loadChildren: () => import('./message/message.module').then( m => m.MessagePageModule)
   },
+  {
+    path: 'product-detail',
+    loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+  },
+  {
+    path: 'product-account',
+    loadChildren: () => import('./product-account/product-account.module').then( m => m.ProductAccountPageModule)
+  },
+  {
+    path: 'message-detail',
+    loadChildren: () => import('./message-detail/message-detail.module').then( m => m.MessageDetailPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'product-list',
+    loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
+  },
+
   // {
   //   path: 'services',
   //   loadChildren: () => import('./services/services.module').then( m => m.ServicesPageModule)

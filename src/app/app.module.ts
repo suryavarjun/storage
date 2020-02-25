@@ -10,7 +10,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule} from '@angular/fire/database';
-import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFirestoreModule,} from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,9 +18,11 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { HttpClientModule } from '@angular/common/http';
 
+//import { CurdPipe } from './services/curd.pipe';
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,  ],
   entryComponents: [],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), 
     AppRoutingModule, AngularFireModule.initializeApp(environment.firebase),
@@ -30,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+   // { provide: FirestoreSettingsToken, useValue: {} } //
   ],
   bootstrap: [AppComponent]
 })

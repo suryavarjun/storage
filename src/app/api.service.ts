@@ -6,7 +6,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  UpdatePerson(recordUpd: any, record: any[]) {
+  updatePerson(recordUpd: any, record: any[]) {
+    throw new Error("Method not implemented.");
+  }
+  UpdateProduct(recordUpd: any, record: any[]) {
     throw new Error("Method not implemented.");
   }
   // updatePerson({ recordUpd, record }: { recordUpd: any; record: any[]; }) {

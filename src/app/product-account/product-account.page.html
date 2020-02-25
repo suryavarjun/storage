@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product-detail"></ion-back-button>
+  </ion-buttons>
+  <ion-button href="/home" (click)="out()" slot="end">
+    <ion-icon name="log-out"></ion-icon>
+  </ion-button>
+    <ion-title>product-account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p class="cust">Customer Bill</p>
+<ion-grid>
+  <ion-row>
+    <ion-col>Amount:</ion-col>
+    <ion-col><input type="number"></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>Bill Amount:</ion-col>
+    <ion-col><input type="number"></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>Balance Amount:</ion-col>
+    <ion-col><input type="number"></ion-col>
+  </ion-row><br>
+</ion-grid>
+<p >Total:</p>
+<input type="number" class="inp"><br>
+<button type="submit">PAY</button>
+<!-- <ion-buttons slot="end">
+  <ion-button (click)="pay()" >PAY</ion-button>
+</ion-buttons> -->
+
+</ion-content>

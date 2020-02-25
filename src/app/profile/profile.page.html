@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+  </ion-buttons>
+  <ion-button href="/home" (click)="out()" slot="end">
+    <ion-icon name="log-out"></ion-icon>
+  </ion-button>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Profile Update</h2>
+<div>
+  <form >
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="lname">Phone Number:</label><br>
+    <input type="number" id="Number" name="Number"><br>
+    <label for="lname">Email:</label><br>
+    <input type="text" id="Email" name="Email"><br>
+  </form>
+  </div>
+<button class="ionn" (click)="cancel()">Cancel</button>
+<button class="ionn" (click)="update()">Update</button>
+</ion-content>

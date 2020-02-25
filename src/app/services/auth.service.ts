@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../shared/user.class';
-import { AngularFirestore } from '@angular/fire/firestore';
+//import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -16,26 +16,26 @@ export class AuthService {
   //}
   public isLogged : any= false;
 
-  constructor(public afAuth: AngularFireAuth, private firestore: AngularFirestore) {
+  constructor(public afAuth: AngularFireAuth, ) { //private firestore: AngularFirestore
     afAuth.authState.subscribe(user => (this.isLogged=user));
    }
 
    //create
-   createNewPerson(record){
-     return this.firestore.collection('mail').add(record);
-   }
-   //read
-   readPerson(){
-    return this.firestore.collection('mail').snapshotChanges();
-  }
-  //update
-  updateStudent(recordId,record){
-   this.firestore.doc('mail/'+ recordId).update(record);
-  }
-  //delete
-  deleteStudent(recordID){
-    this.firestore.doc('mail/'+ recordID).delete();
-  }
+  //  createNewPerson(record){
+  //    return this.firestore.collection('mail').add(record);
+  //  }
+  //  //read
+  //  read_Students(){
+  //   return this.firestore.collection('mail').snapshotChanges();
+  // }
+  // //update
+  // updateStudent(recordId,record){
+  //  this.firestore.doc('mail/'+ recordId).update(record);
+  // }
+  // //delete
+  // deleteStudent(recordID){
+  //   this.firestore.doc('mail/'+ recordID).delete();
+  // }
 //login
 async onLogin(user:User){
   try{

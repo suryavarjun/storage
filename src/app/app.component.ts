@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 //import { AuthenticationService } from './services/authentication.service';
 import { AuthService } from './services/auth.service';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { Platform } from '@ionic/angular';
@@ -18,9 +20,12 @@ import { ApiService } from './api.service';
 export class AppComponent {
   [x: string]: any;
   smartphone: any = [];
+  itemValue = '';
+  items: Observable<any[]>;
 
   authService: any;
   constructor(
+    public db: AngularFireDatabase,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
@@ -28,6 +33,7 @@ export class AppComponent {
     private router : Router
   ) {
     this.initializeApp();
+    
   }
 
   getSmartphones() {

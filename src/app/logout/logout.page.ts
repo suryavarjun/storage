@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 // import { CrudService } from './../service/crud.service';
 import { ApiService } from '../api.service';
 
@@ -8,68 +10,84 @@ import { ApiService } from '../api.service';
   templateUrl: './logout.page.html',
   styleUrls: ['./logout.page.scss'],
 })
-export class LogoutPage implements OnInit {
-  users=[];
-  numbers=[];
-  persons='';
-  enterName='';
-  Phonenumber='';
-  email='';
+export class LogoutPage{
+  // users=[];
+  // numbers=[];
+  // persons='';
+  // quantitynumber='';
+  product='';
+  quantity='';
+  cost='';
   favorites: any;
   ApiService: any;
+  productForm:FormGroup;
   
-  constructor(private http: HttpClient, private apiservice: ApiService) { } 
-
-  ngOnInit() {
-    this.ApiService.readPerson().subscribe(data => {
- 
-   this.persons = data.map(e => {
-     return {
-     id: e.payload.doc.id,
-     isEdit: false,
-     enterName: e.payload.doc.data()['Name'],
-     Phonenumber: e.payload.doc.data()['Phonenumber'],
-     Email: e.payload.doc.data()['email'],
-     };
-     })
-      console.log(this.persons);
-     });
-  }
-  CreatePerson() {
-    let record = {};
-    record['Name'] = this.enterName;
-    record['Phonenumber'] = this.Phonenumber;
-    record['Email'] = this.email;
-    this.ApiService.createNewPerson(record).then(resp => {
-      this.enterName = "";
-      this.Phonenumber = '';
-      this.email = "";
-      console.log(resp);
-    })
-      .catch(error => {
-        console.log(error);
+  constructor(private http: HttpClient, private apiservice: ApiService,
+    private formBuilder: FormBuilder, private router: Router, private route:ActivatedRoute) {
+      this.productForm = this.formBuilder.group({
+        product: ['', Validators.compose([Validators.required])],
+        quantity: [Validators.required],
+        cost: [Validators.required]
       });
+     } 
+
+  submit(){
+  if(this.product == '' || this.quantity=='' || this.cost==''){
+    alert('Enter all details');
+  } else {
+    console.log('Product Name:' + this.product);
+    console.log('Product Quantity:' + this.quantity);
+    console.log('Product Cost:' + this.cost);
+  }
+  }
+ 
+  onSubmit(){
+    this.product='';
+    this.quantity='';
+    this.cost='';
   }
 
-  Removeperson(rowID) {
-    this.ApiService.delete_Person(rowID);
-  }
 
-  EditPerson(record){
-    record.isEdit=true;
-   record.EditenterName=record.enterName;
-   record.EditPhonenumber=record.Phonenumber;
-   record.EditEmail=record.Email;
-  }
+  // out(){
+  //   this.router.navigateByUrl('home');
+  // }
+  
+  // createPerson() {
+  //   let record = {};
+  //   record['Product Name'] = this.productName;
+  //   record['Quantity number'] = this.quantitynumber;
+  //   record['Cost'] = this.cost;
+  //   this.ApiService.createPerson(record).then(resp => {
+  //     this.productName = "";
+  //     this.quantitynumber = '';
+  //     this.cost = "";
+  //     console.log(resp);
+  //   })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }
 
-  UpdatePerson(recordUpd){
-   let record=[];
-   record['Name']=recordUpd.EditenterName;
-   record['Phonenumber']=recordUpd.EditPhonenumber;
-   record['Email']=recordUpd.EditEmail;
-   this.apiservice.UpdatePerson(recordUpd, record);
-   recordUpd.isEdit=false;
-  }
+  // Removeproduct(rowID) {
+  //   this.ApiService.delete_Person(rowID);
+  // }
+
+  // Editproduct(record){
+  //   record.isEdit=true;
+  //  record.EditenterName=record.productName;
+  //  record.EditPhonenumber=record.quantity;
+  //  record.EditEmail=record.cost;
+  // }
+
+  // UpdateProduct(recordUpd){
+  //  let record=[];
+  //  record['Product Name']=recordUpd.productName;
+  //  record['Quantity number']=recordUpd.quantity;
+  //  record['Cost']=recordUpd.cost;
+  //  this.apiservice.UpdateProduct
+  //  (recordUpd, record);
+  //  recordUpd.isEdit=false;
+  // }
 
   //
   add(){
@@ -92,10 +110,10 @@ export class LogoutPage implements OnInit {
     console.log('Success');
   }
    
-  reg(){
-    console.log('Name:' + this.enterName);
-    console.log('Number:' + this.Phonenumber);
-}
+//   reg(){
+//     console.log('Name:' + this.product);
+//     console.log('Number:' + this.quantitynumber);
+// }
 }
   // add(uname){
   //   this.users.push({

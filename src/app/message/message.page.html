@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/dashboard">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-button href="/home" (click)="out()" slot="end">
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
+    <ion-title>message</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- <ion-grid>
+  <ion-row>
+    <ion-col size="5">
+      Message1
+    </ion-col>
+    <ion-col size="7">
+      <p (click)="edit()">Edit</p>
+      <p (click)="delt()">Delete</p>
+    </ion-col>
+  </ion-row>
+</ion-grid> -->
+
+<!-- <ion-item>
+  <ion-label>Message 1</ion-label>
+  <ion-label (click)="edit()" slot="end">Edit 1</ion-label>
+</ion-item> -->
+
+<div>
+  <h2>Messages</h2>
+  <table>
+    <tr>
+      <td>message 1</td>
+      <td (click)="edit()">Edit</td>
+      <td (click)="delt()">Delete</td>
+    </tr>
+    <tr>
+      <td>message 2</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+    <tr>
+      <td>message 3</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+  </table>
+</div>
+</ion-content>

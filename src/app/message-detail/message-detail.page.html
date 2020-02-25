@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/message">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-button href="/home" (click)="out()" slot="end">
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
+    <ion-title>message-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Message-Detail</h2>
+  <div>
+  <ion-item class="date">
+    <ion-label>Date:</ion-label>
+    <input type="date" id="start" name="trip-start"
+       value="" 
+       min="01-01-2001" max="31-12-2030">
+    <!-- <ion-datetime display-format="MM DD YY" placeholder="Select Date"></ion-datetime> -->
+  </ion-item>
+</div>
+<textarea class="text"></textarea>
+</ion-content>

@@ -1,14 +1,59 @@
 <ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
-      <ion-button (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-      </ion-button>
+        <ion-back-button defaultHref="/login">
+        <!-- <ion-icon slot="icon-only" name="log-out"></ion-icon> -->
+      </ion-back-button>
       </ion-buttons>
+      <ion-button href="/home" (click)="out()" slot="end">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
     <ion-title>dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="prodts()" class="grr2">
+        <ion-img src="assets/icon/prodt.png"></ion-img>
+        Products
+      </ion-col>
+      <ion-col (click)="mesge()" class="grr2">
+        <ion-img src="assets/icon/m1.png"></ion-img>
+        Messages
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col (click)="details()" class="grr1">
+        <ion-img src="assets/icon/editt.png"></ion-img>
+        Edit Detials
+      </ion-col>
+      <ion-col (click)="call()" class="grr1">
+        <ion-img src="assets/icon/phone.png"></ion-img>
+        Call Us
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col (click)="logss()" class="grr3">
+        <ion-img  class="img1" src="assets/icon/sync.png"></ion-img>
+        Synchronize
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
+
+
+  <!-- <ion-grid class="grrr">
+    <ion-row>
+      <ion-col class="grr1">1</ion-col>
+      <ion-col class="grr1">1</ion-col>
+      <ion-col class="grr1">1</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>2</ion-col>
+      <ion-col>2</ion-col>
+      <ion-col>2</ion-col>
+    </ion-row>
+  </ion-grid> -->
 </ion-content>

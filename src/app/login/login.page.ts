@@ -22,7 +22,8 @@ async onLogin(){
   if(user){
     
     console.log('Succesfully logged in!');
-    this.router.navigateByUrl('logout');
+    this.router.navigateByUrl('dashboard');
+    // this.router.navigateByUrl('logout');
   }
 }
 }
